@@ -1,0 +1,26 @@
+{
+  "name": "school-finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "browserify": "^13.0.0",
+    "es6-promise": "^3.1.2",
+    "express": "^4.13.4",
+    "guid": "0.0.12",
+    "gulp": "^3.9.1",
+    "jquery": "^2.2.2",
+    "mongoose": "^4.4.10",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "reactify": "^1.1.1",
+    "underscore": "^1.8.3",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

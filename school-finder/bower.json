@@ -1,0 +1,21 @@
+{
+  "name": "school-finder",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "rptorres22 <rtorres22@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-css": "^3.3.6"
+  }
+}
