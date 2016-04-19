@@ -1,4 +1,6 @@
-//import uui from 'note-uuid';
+
+import AltContainer from 'alt-container';
+
 import React from 'react';
 import Notes from './Notes.jsx';
 
@@ -7,29 +9,14 @@ import NoteStore from '../stores/NoteStore';
 
 export default class App extends React.Component {
 
+	//Commented out to use Alt Container now
+	/*
 	constructor(props) {
 		super(props);
 
-		/*
-		this.state = {
-			notes: [
-				{
-					id: uuid.v4(),
-					task: 'Learn Webpack'
-				},
-				{
-					id: uuid.v4(),
-					task: 'Learn React'
-				},
-				{
-					id: uuid.v4(),
-					task: 'Do laundry'
-				},
-			]
-		};
-		*/
 		this.state = NoteStore.getState();
 	}
+	
 
 	componentDidMount() {
 		NoteStore.listen(this.storeChanged);
@@ -45,9 +32,12 @@ export default class App extends React.Component {
     	// `undefined` in strict mode.
     	this.setState(state);
 	}
+	*/
 
 	render() {
 
+		//Commented out to use Alt Container now
+		/*
 		const notes = this.state.notes;
 
 		return (
@@ -56,6 +46,20 @@ export default class App extends React.Component {
 				<Notes notes={notes} onEdit={this.editNote} onDelete={this.deleteNote} />
 			</div>
 		);
+		*/
+
+		return (
+			<div>
+				<button className="add-note" onClick={this.addNote}>+</button>
+				<AltContainer
+					stores={[NoteStore]}
+					inject={{
+						notes: () => NoteStore.getState().notes
+					}}>
+					<Notes onEdit={this.editNote} onDelete={this.deleteNote} />
+				</AltContainer>
+			</div>
+		)
 	}
 
 	/*
