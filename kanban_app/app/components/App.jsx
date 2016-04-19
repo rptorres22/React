@@ -1,11 +1,14 @@
 
 import AltContainer from 'alt-container';
-
 import React from 'react';
-import Notes from './Notes.jsx';
 
-import NoteActions from '../actions/NoteActions';
-import NoteStore from '../stores/NoteStore';
+//import Notes from './Notes.jsx';
+//import NoteActions from '../actions/NoteActions';
+//import NoteStore from '../stores/NoteStore';
+
+import Lanes from './Lanes.jsx';
+import LaneActions from '../actions/LaneActions';
+import LaneStore from '../stores/LaneStore';
 
 export default class App extends React.Component {
 
@@ -47,7 +50,7 @@ export default class App extends React.Component {
 			</div>
 		);
 		*/
-
+		/*
 		return (
 			<div>
 				<button className="add-note" onClick={this.addNote}>+</button>
@@ -57,6 +60,19 @@ export default class App extends React.Component {
 						notes: () => NoteStore.getState().notes
 					}}>
 					<Notes onEdit={this.editNote} onDelete={this.deleteNote} />
+				</AltContainer>
+			</div>
+		)
+		*/
+		return (
+			<div>
+				<button className="add-lane" onClick={this.addLane}>+</button>
+				<AltContainer
+					stores={[LaneStore]}
+					inject={{
+						lanes: () => LaneStore.getState().lanes || []
+					}}>
+					<Lanes />
 				</AltContainer>
 			</div>
 		)
@@ -72,12 +88,14 @@ export default class App extends React.Component {
 		});
 	};
 	*/
+	/*
 	deleteNote(id, e) {
 		// Avoid bubblign to edit
 		e.stopPropagation();
 
 		NoteActions.delete(id);
 	}
+	*/
 
 
 	// We are using an experimental feature known as property
@@ -107,10 +125,11 @@ export default class App extends React.Component {
 		});
 	};
 	*/
+	/*
 	addNote() {
 		NoteActions.create({ task: 'New task' });
 	}
-
+	*/
 	/*
 	editNote = (id, task) => {
 	  	// Don't modify if trying to set an empty value
@@ -129,6 +148,7 @@ export default class App extends React.Component {
 	  	this.setState({notes});
 	};
 	*/
+	/*
 	editNote(id, task) {
 		// Don't modify if trying to set an empty value
 		if(!task.trim()) {
@@ -136,5 +156,10 @@ export default class App extends React.Component {
 		}
 
 		NoteActions.update({id, task});
+	}
+	*/
+
+	addLane() {
+		LaneActions.create({name: 'New lane'});
 	}
 }

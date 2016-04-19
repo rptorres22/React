@@ -11,10 +11,26 @@ way React works so it's worth using.
 */
 
 class NoteStore {
+	
 	constructor() {
 		this.bindActions(NoteActions);
 
 		this.notes = [];
+
+		/*
+		Implementing a Getter for NoteStore
+		One neat way to resolve lane notes to actual data is to implement a 
+		public method NoteStore.getNotesByIds(notes). It accepts an array of 
+		Note ids, and returns the corresponding objects.
+
+		Just implementing the method isn't enough. We also need to make it 
+		public. In Alt, this can be achieved using this.exportPublicMethods. 
+		It takes an object that describes the public interface of the store 
+		in question. Consider the implementation below:
+		*/
+		this.exportPublicMethods({
+			getNotesByIds: this.getNotesByIds.bind(this)
+		});
 	}
 
 	create(note) {
@@ -25,6 +41,8 @@ class NoteStore {
 		this.setState({
 			notes: notes.concat(note)
 		});
+
+		return note;
 	}
 
 	update(updatedNote) {
@@ -52,6 +70,20 @@ class NoteStore {
 		this.setState({
 			notes: this.notes.filter(note => note.id !== id)
 		});
+	}
+
+	getNotesByIds(ids) {
+		// 1. Make sure we are operating on an array and
+		// map over the ids
+		// [id, id, id, ...] -> [[Note], [], [Note], ...]
+		return (ids || []).map(
+			// 2. Extract matching notes
+			// [Note, Note, Note] -> [Note, ...] (match) or [] (no match)
+			id => this.notes.filter(note => note.id === id)
+
+		// 3. Filter out possible empty arrays and get notes
+		// [[Note], [], [Note]] => [[Note], [Note]] -> [Note, Note]
+		).filter(a => a.length).map(a => a[0]);
 	}
 }
 
