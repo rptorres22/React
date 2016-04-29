@@ -3,6 +3,8 @@ http://blog.tighten.co/react-101-building-a-gif-search-engine
 left off at Search!
 
 
+GiphyAPI:
+https://github.com/Giphy/GiphyAPI
 
 Package information:
 babel-core: the actual Babel library
