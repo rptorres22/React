@@ -1,6 +1,8 @@
+http://blog.tighten.co/authors/samantha-geitz
 http://blog.tighten.co/react-101-building-a-gif-search-engine
+http://blog.tighten.co/react-101-using-redux
 
-left off at Search!
+
 
 
 GiphyAPI:
