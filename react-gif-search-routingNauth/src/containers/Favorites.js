@@ -5,3 +5,5 @@ class Favorites extends React.Component {
     return <div>My Favorites</div>;
   }
 }
+
+export default Favorites;
