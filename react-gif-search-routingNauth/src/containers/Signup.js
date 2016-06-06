@@ -1,5 +1,6 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
+import * as Actions from '../actions';
 
 /* validation
   We're checking that the email, password, and passwordConfirmation fields have
@@ -35,7 +36,8 @@ const validate = values => {
 class Signup extends React.Component {
 
   handleFormSubmit = (values) => {
-    console.log(values);
+    //console.log(values);
+    this.props.signInUser(values);
   };
 
   render() {
@@ -75,4 +77,4 @@ export default reduxForm({
   form: 'signup',
   fields: ['email', 'password', 'passwordConfirmation'],
   validate
-})(Signup);
+}, null, Actions)(Signup);
