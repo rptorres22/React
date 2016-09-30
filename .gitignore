@@ -55,5 +55,6 @@ Temporary Items
 /kanban_app/node_modules
 /react-gif-search/node_modules
 /react-gif-search-react/node_modules
+/typescript-react-webpack/node_modules
 /saas-tutorial/client/node_modules
 /saas-tutorial/server/node_modules
