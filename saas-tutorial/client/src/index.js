@@ -7,12 +7,19 @@ import reduxThunk from 'redux-thunk';
 import routes from './routes';
 import reducers from './reducers/index';
 import { AUTH_USER } from './actions/types';
+import cookie from 'react-cookie';
 
 // Import stylesheets like this, if you choose:
 //  import './public/stylesheets/base.scss';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
+
+const token = cookie.load('token');
+
+if (token) {
+    store.dispatch({ type: AUTH_USER });
+}
 
 ReactDOM.render(
   <Provider store={store}>
@@ -42,4 +49,10 @@ bar, parses the URL, and renders the appropriate component. Continuing to the
 second argument of ReactDOM.render(), we are passing in the element we want
 React to attach our app to. In this case, our app will attach to the div in our
 index.html file with the wrapper class.
+
+
+react-cookie is used to make sure users stay authenticated even if they refresh
+and lose their state.  We also need to check if there is a JWT present in the
+user's cookie.  If so, this means we shoudl update the state to an authenticated
+status.
 */
