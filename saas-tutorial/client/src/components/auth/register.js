@@ -60,11 +60,11 @@ class Register extends Component {
                 {this.renderAlert()}
                 <div className="row">
                     <div className="col-md-6">
-                        <label>First Name</lable>
+                        <label>First Name</label>
                         <Field name="firstName" className="form-control" component={renderField} type="text" />
                     </div>
                     <div className="col-md-6">
-                        <label>Last Name</lable>
+                        <label>Last Name</label>
                         <Field name="lastName" className="form-control" component={renderField} type="text" />
                     </div>
                 </div>
@@ -93,7 +93,7 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, { registeruser })(form(Register));
+export default connect(mapStateToProps, { registerUser })(form(Register));
 
 /*
 RPT NOTES:
