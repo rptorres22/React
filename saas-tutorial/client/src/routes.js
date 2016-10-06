@@ -1,23 +1,31 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
+// Import miscellaneous routes and other requirements
 import App from './components/app';
 import NotFoundPage from './components/pages/not-found-page';
 
+// Import static pages
 import HomePage from './components/pages/home-page';
+
+// Import authentication related pages
 import Register from './components/auth/register';
 import Login from './components/auth/login';
+
+// Import dashboard pages
 import Dashboard from './components/dashboard';
+
+// Import higher order components
 import RequireAuth from './components/auth/require-auth';
 
 export default(
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
-    <Route path="register" component={Register} />
-    <Route path="login" component={Login} />
-    <Route path="dashboard" component={RequireAuth(Dashboard)} />
+    //<Route path="register" component={Register} />
+    //<Route path="login" component={Login} />
+    //<Route path="dashboard" component={RequireAuth(Dashboard)} />
 
-    <Route path="*" component={NotFoundPage} />
+    //<Route path="*" component={NotFoundPage} />
   </Route>
 );
 

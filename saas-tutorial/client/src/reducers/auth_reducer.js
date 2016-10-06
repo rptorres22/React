@@ -3,7 +3,7 @@ import { AUTH_USER,
          UNAUTH_USER,
          PROTECTED_TEST } from '../actions/types';
 
-const INITIAL_STATE = { error: '', message: '', content: '', authenticated: false }
+const INITIAL_STATE = { error: '', message: '', content: '', authenticated: false };
 
 export default function (state = INITIAL_STATE, action) {
   switch(action.type) {

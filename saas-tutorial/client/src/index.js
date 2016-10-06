@@ -4,10 +4,11 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, browserHistory } from 'react-router';
 import reduxThunk from 'redux-thunk';
+import cookie from 'react-cookie';
 import routes from './routes';
 import reducers from './reducers/index';
 import { AUTH_USER } from './actions/types';
-import cookie from 'react-cookie';
+
 
 // Import stylesheets like this, if you choose:
 //  import './public/stylesheets/base.scss';
@@ -18,16 +19,24 @@ const store = createStoreWithMiddleware(reducers);
 const token = cookie.load('token');
 
 if (token) {
+    // Update application state. User has token and is probably authenticated
     store.dispatch({ type: AUTH_USER });
 }
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={browserHistory} routes={routes} />
-  </Provider>,
+    <Provider store={store}>
+        <Router history={browserHistory} routes={routes} />
+    </Provider>,
   document.querySelector('.wrapper')
 );
 
+/*
+import Home from './components/pages/home-page';
+ReactDOM.render(
+    <Home></Home>,
+  document.querySelector('.wrapper')
+);
+*/
 
 /*
 RPT NOTES:

@@ -4,15 +4,15 @@ import { Field, reduxForm } from 'redux-form';
 import { registerUser } from '../../actions';
 
 const form = reduxForm({
-  form: 'register',
-  validate
+    form: 'register',
+    validate
 });
 
 const renderField = field => (
-  <div>
-      <input className="form-control" {...field.input}/>
-      {field.touched && field.error && <div className="error">{field.error}</div>}
-  </div>
+      <div>
+          <input className="form-control" {...field.input}/>
+          {field.touched && field.error && <div className="error">{field.error}</div>}
+      </div>
 );
 
 function validate(formProps) {
