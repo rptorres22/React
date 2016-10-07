@@ -23,3 +23,9 @@ exports = module.exports = function(io) {
     });
   });
 }
+
+/*
+RPT NOTES:
+This is telling Socket to listen for and react to certain events, like a client
+connecting, leaving, or sending a message.
+*/
