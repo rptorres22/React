@@ -1,0 +1,31 @@
+
+
+========================================================
+Front End (client):
+========================================================
+With all of this said and done, you should now have a working front end
+authentication system that will tie in perfectly with your back end. To test
+this, run npm start in your console. Your Webpack should start building, and
+once it says your bundle is valid, you can head to
+http://localhost:8080/register to set up a new account. You can also try going
+to http://localhost:8080/login to login once you've set an account up.
+
+
+
+
+========================================================
+Back End (server):
+========================================================
+Now you can test out your new API endpoints by creating a new conversation.
+
+In Postman, you will need to login by sending a POST request to
+http://localhost:3000/api/auth/login with your email and password. Once you get
+a JWT response, copy that and put it in your Authorization headers.
+(Instructions for this can be found in this tutorial toward the bottom). Change
+the body of the request to composedMessage: Test message here! then change your
+URL to /api/chat/new/idOfUser, but enter the ID of one of the users saved in
+your database. Hit send and you should get a success message.
+
+Feel free to also test your GET routes on all conversations (/api/chat) and then
+on the individual conversation (/api/chat/idOfConversation)you just created. You
+can also add a reply with your other POST route (/api/chat/idOfConversation).
