@@ -7,7 +7,7 @@ class AdminDashboard extends Component {
                 <div>
                     Admin navigation goes here.
                 </div>
-            )
+            );
       }
 }
 

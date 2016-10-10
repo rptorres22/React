@@ -23,9 +23,9 @@ module.exports = function(app) {
   const apiRoutes = express.Router(),
         authRoutes = express.Router(),
         userRoutes = express.Router(),
-        chatRoutes = express.Router(),
-        payRoutes = express.Router(),
-        communicationRoutes = express.Router();
+        chatRoutes = express.Router();
+        //payRoutes = express.Router(),
+        //communicationRoutes = express.Router();
 
   //=========================
   // Auth Routes
