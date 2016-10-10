@@ -8,7 +8,7 @@ import NotFoundPage from './components/pages/not-found-page';
 // Import static pages
 import HomePage from './components/pages/home-page';
 import ContactPage from './components/pages/contact-page';
-import ComponentSamplesPage from './components/pages/components-samples';
+import ComponentSamplesPage from './components/pages/component-samples';
 
 // Import authentication related pages
 import Register from './components/auth/register';

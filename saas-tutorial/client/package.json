@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.14.0",
+    "moment": "^2.15.1",
     "react": "^15.3.2",
     "react-cookie": "^0.4.8",
     "react-dom": "^15.3.2",
@@ -12,7 +13,9 @@
     "react-router": "^2.8.1",
     "redux": "^3.6.0",
     "redux-form": "^6.0.0-rc.3",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "socket.io": "^1.5.0",
+    "socket.io-client": "^1.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.16.0",
