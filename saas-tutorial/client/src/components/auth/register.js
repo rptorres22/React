@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { registerUser } from '../../actions';
+import { registerUser } from '../../actions/auth';
 
 const form = reduxForm({
     form: 'register',
@@ -69,13 +69,13 @@ class Register extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div fclassName="col-md-12">
+                    <div className="col-md-12">
                         <label>Email</label>
                         <Field name="email" className="form-control" component={renderField} type="text" />
                     </div>
                 </div>
                 <div className="row">
-                    <div fclassName="col-md-12">
+                    <div className="col-md-12">
                         <label>Password</label>
                         <Field name="password" className="form-control" component={renderField} type="text" />
                     </div>
