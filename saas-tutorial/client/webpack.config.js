@@ -17,7 +17,7 @@ const config = {
     },
     {
       test: /\.scss$/,
-      laoder: ExtractTextPlugin.extract('css!sass')
+      loader: ExtractTextPlugin.extract('css!sass')
     }]
   },
   devServer: {

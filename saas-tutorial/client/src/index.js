@@ -12,7 +12,7 @@ import { AUTH_USER } from './actions/types';
 
 
 // Import stylesheets like this, if you choose:
-//  import './public/stylesheets/base.scss';
+import './public/stylesheets/base.scss';
 
 // Initialize Google Analytics
 //ReactGA.initialize('UA-000000-01');
