@@ -9,7 +9,6 @@ const form = reduxForm({
 });
 
 class Login extends Component {
-
   handleFormSubmit(formProps) {
     this.props.loginUser(formProps);
   }
@@ -49,7 +48,8 @@ class Login extends Component {
 function mapStateToProps(state) {
     return {
         errorMessage: state.auth.error,
-        message: state.auth.message
+        message: state.auth.message,
+        authenticated: state.auth.authenticated
     };
 }
 
