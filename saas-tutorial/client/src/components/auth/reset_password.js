@@ -35,7 +35,7 @@ const renderField = field => (
 
 class ResetPassword extends Component {
     static contextTypes = {
-        router: React.Proptypes.object
+        router: React.PropTypes.object
     }
 
     componentWillMount() {

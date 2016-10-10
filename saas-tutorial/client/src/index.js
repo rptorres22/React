@@ -34,10 +34,15 @@ if (token) {
 ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory} routes={routes} />
-        //<Router history={browserHistory} routes={routes} onUpdate={logPageView} />
     </Provider>,
   document.querySelector('.wrapper')
 );
+
+
+/*
+To use google analytics
+<Router history={browserHistory} routes={routes} onUpdate={logPageView} />
+*/
 
 /*
 import Home from './components/pages/home-page';
