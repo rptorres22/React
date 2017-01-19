@@ -19,9 +19,17 @@ function validate(data) {
 mongodb.MongoClient.connect(dbUrl, function(err, db) {
     
     app.get('/api/games', (req, res) => {
-        db.collection('games').find({}).toArray((err, games) => {
-            res.json({ games });
-        });
+
+        // simulating some lag
+        setTimeout(() => {
+
+            db.collection('games').find({}).toArray((err, games) => {
+                res.json({ games });
+            });
+
+        }, 2000)
+
+       
     });
 
     app.post('/api/games', (req, res) => {
