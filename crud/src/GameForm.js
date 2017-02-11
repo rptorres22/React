@@ -2,17 +2,35 @@ import React from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { saveGame } from './actions';
+import { saveGame, fetchGame } from './actions';
 
 class GameForm extends React.Component {
 
+    //checks if there is a game to be edited, this is passed from props
     state = {
-        title: '',
-        cover: '',
+        _id: this.props.game ? this.props.game._id : null,
+        title: this.props.game ? this.props.game.title : '',
+        cover: this.props.game ? this.props.game.cover : '',
         errors: {},
         loading: false,
         done: false
     }
+
+    componentWillReceiveProps = (nextProps) => {
+        this.setState({
+            _id: nextProps.game._id,
+            title: nextProps.game.title,
+            cover: nextProps.game.cover
+        })
+    }
+
+    componentDidMount = () => {
+        //ony do this if the id is provided by the route
+        if (this.props.params._id) {
+            this.props.fetchGame(this.props.params._id);
+        }
+    }
+
 
     handleChange = (e) => {
         if(!!this.state.errors[e.target.name]) {
@@ -97,4 +115,19 @@ class GameForm extends React.Component {
     }
 }
 
-export default connect(null, { saveGame })(GameForm);
+
+
+function mapStateToProps(state, props) {
+
+    // check if this GameForm has been passed a parameter for an existing game from the router
+    if (props.params._id) {
+        return {
+            game: state.games.find(item => item._id === props.params._id)
+        }
+    }
+
+    // otherwise the form will start with an empty game 
+    return { game: null };
+}
+
+export default connect(mapStateToProps, { saveGame, fetchGame })(GameForm);

@@ -21,6 +21,7 @@ mongodb.MongoClient.connect(dbUrl, function(err, db) {
     app.get('/api/games', (req, res) => {
 
         // simulating some lag
+        /*
         setTimeout(() => {
 
             db.collection('games').find({}).toArray((err, games) => {
@@ -28,6 +29,11 @@ mongodb.MongoClient.connect(dbUrl, function(err, db) {
             });
 
         }, 2000)
+        */
+
+        db.collection('games').find({}).toArray((err, games) => {
+            res.json({ games });
+        });
 
        
     });
@@ -47,6 +53,12 @@ mongodb.MongoClient.connect(dbUrl, function(err, db) {
         } else {
             res.status(400).json({ errors });
         }
+    });
+
+    app.get('/api/games/:_id', (req, res) => {
+        db.collection('games').findOne({ _id: new mongodb.ObjectID(req.params._id) }, (err, game) => {
+            res.json({ game });
+        })
     });
 
     app.use((req, res) => {
