@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 import { saveGame, fetchGame, updateGame } from './actions';
 import GameForm from './GameForm';
 
@@ -12,8 +12,9 @@ class GameFormPage extends React.Component {
 
     componentDidMount = () => {
         //ony do this if the id is provided by the route
-        if (this.props.params._id) {
-            this.props.fetchGame(this.props.params._id);
+        const { match } = this.props;
+        if (match.params._id) {
+            this.props.fetchGame(match.params._id);
         }
     }
 
@@ -46,11 +47,11 @@ class GameFormPage extends React.Component {
 }
 
 function mapStateToProps(state, props) {
-
+    const { match } = props;
     // check if this GameForm has been passed a parameter for an existing game from the router
-    if (props.params._id) {
+    if (match.params._id) {
         return {
-            game: state.games.find(item => item._id === props.params._id)
+            game: state.games.find(item => item._id === match.params._id)
         }
     }
 
